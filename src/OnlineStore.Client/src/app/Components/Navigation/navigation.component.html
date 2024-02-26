@@ -1,0 +1,26 @@
+<div class="bg-black navigation ph-2 pw-1">
+  <div class="flex navigation-main">
+    <div class="navigation-logo w-25">
+      <h1>Online Store</h1>
+    </div>
+    <div class="navigation-search w-50">
+      <input type="text" value="" placeholder="search" class="text-input text-input-search w-25" />
+      <input type="button" value="Find" class="btn-search"/>
+    </div>
+    <div class="navigation-tools w-25">
+      <div class="mh-3">
+        <span (click)="changeLanguage('ua')"
+              [ngClass]="{
+              'text-light-blue' : currentLang == 'ua',
+              'link-light' : currentLang != 'ua'}">UA</span>
+        <span class="text-light mh-1">|</span>
+        <span (click)="changeLanguage('en')"
+              [ngClass]="{
+              'text-light-blue' : currentLang == 'en',
+              'link-light' : currentLang != 'en'}">ENG</span>
+      </div>
+      <button class="btn-white-small mr-3">{{ "HOME.BUTTONS.LOGOUT" | translate }}</button>
+    </div>
+  </div>
+  <app-breadcrumbs></app-breadcrumbs>
+</div>
