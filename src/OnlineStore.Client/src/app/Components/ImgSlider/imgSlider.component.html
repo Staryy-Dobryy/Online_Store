@@ -1,0 +1,27 @@
+<div *ngIf="imgPreviews" class="container">
+  <div class="image-content flex flex-wrap col">
+    <div class="w-100p h-100p content-center" *ngFor="let item of imgPreviews" [ngStyle]="{'transform': 'translateX(-' + scale * 100 + '%)', 'transition': '.8s'}">
+      <div class="w-100p h-100p image-content-description content-center">
+        <div class="h-100p content-center image-content-description-bg ">
+          <div class="w-50p">
+            <h1 class="text-light">{{ item.label }}</h1>
+          </div>
+        </div>
+      </div>
+      <img src="{{ item.imgUrl }}" class="h-100p" alt="Alternate Text" />
+    </div>
+  </div>
+  <div class="image-indicator">
+    <div *ngFor="let item of imgPreviews; let i = index">
+      <div class="slide-indicator" [ngClass]="{'activated-slide-indicator': scale == i}"></div>
+    </div>
+  </div>
+  <div class="image-navigation">
+    <svg (click)="back()" width="50" viewBox="0 0 320 512">
+      <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" />
+    </svg>
+    <svg (click)="next()" width="50" viewBox="0 0 320 512">
+      <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
+    </svg>
+  </div>
+</div>
